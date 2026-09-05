@@ -1,5 +1,5 @@
 """
-TEST: GITHUB ACTIONS PIPELINE
+TEST: GITHUB ACTIONS PIPELINE 1.0
 """
 
 from contextlib import asynccontextmanager

@@ -1,4 +1,5 @@
 import secrets
+from typing import Annotated
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
@@ -13,8 +14,8 @@ security = HTTPBasic()
 
 
 async def get_current_user(
-    credentials: HTTPBasicCredentials = Depends(security),
-    db: AsyncSession = Depends(get_db),
+    credentials: Annotated[HTTPBasicCredentials, Depends(security)],
+    db: Annotated[AsyncSession, Depends(get_db)],
 ) -> User:
     user = await user_repo.get_by_username(db, credentials.username)
     if user is None or not await verify_password(credentials.password, user.hashed_password):
