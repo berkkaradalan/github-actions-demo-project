@@ -1,3 +1,7 @@
+"""
+TEST: GITHUB ACTIONS PIPELINE
+"""
+
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
